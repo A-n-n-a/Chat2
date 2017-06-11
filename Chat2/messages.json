@@ -1,0 +1,148 @@
+{
+    "messages": [
+        {
+            "create_date": "2017-06-01T11:26:18.722663Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-05-29T14:09:57.070751Z",
+            "sender": {
+                "last_name": "Rock",
+                "id": 1947,
+                "photo": "",
+                "username": "nickrock",
+                "first_name": "Nick"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-04-28T14:09:50.647737Z",
+            "sender": {
+                "last_name": "Rock",
+                "id": 1947,
+                "photo": "",
+                "username": "nickrock",
+                "first_name": "Nick"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-04-25T13:51:33.341532Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": ":smile:"
+        },
+        {
+            "create_date": "2017-04-21T13:51:25.219897Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": ":poop:"
+        },
+        {
+            "create_date": "2017-04-19T13:45:43.234162Z",
+            "sender": {
+                "last_name": "Rock",
+                "id": 1947,
+                "photo": "",
+                "username": "nickrock",
+                "first_name": "Nick"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-04-18T13:45:43.234162Z",
+            "sender": {
+                "last_name": "Rock",
+                "id": 1947,
+                "photo": "",
+                "username": "nickrock",
+                "first_name": "Nick"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-04-15T13:51:25.219897Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": ":poop:"
+        },
+        {
+            "create_date": "2017-03-11T11:26:18.722663Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-03-12T11:26:18.722663Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-03-14T11:26:18.722663Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        },
+        {
+            "create_date": "2017-03-19T11:26:18.722663Z",
+            "sender": {
+                "last_name": "Clar",
+                "id": 1747,
+                "photo": "",
+                "username": "alexclar",
+                "first_name": "Alex"
+            },
+            "is_read": true,
+            "text": "Hey, how are you?"
+        }
+    ]
+}
