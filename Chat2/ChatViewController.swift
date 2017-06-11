@@ -11,6 +11,7 @@ import UIKit
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
   
     
     // MARK: Strings
@@ -157,8 +158,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if cell.unreadLabel.text == "0" {
             cell .unreadLabel.isHidden = true
-        } else {
-            cell.unreadLabel.layer.cornerRadius = 11
+//        } else {
+//            cell.unreadLabel.layer.cornerRadius = 11
             
         }
         

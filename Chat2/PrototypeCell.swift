@@ -10,6 +10,7 @@ import UIKit
 
 class PrototypeCell: UITableViewCell {
     
+    
     @IBOutlet weak var userpic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
@@ -31,7 +32,7 @@ class PrototypeCell: UITableViewCell {
     
     func customInit(userpic: UIImage, nameLabel: String, messageLabel: String, timeLabel: String, unreadLabel: String) {
         self.userpic.image = userpic
-        self.nameLabel?.text = nameLabel
+        self.nameLabel.text = nameLabel
         self.messageLabel.text = messageLabel
         self.timeLabel.text = timeLabel
         self.unreadLabel.text = unreadLabel
