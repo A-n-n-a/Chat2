@@ -58,7 +58,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="20"/>
+                                                            <integer key="value" value="25"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
@@ -141,10 +141,12 @@
                         <constraints>
                             <constraint firstItem="uDj-gb-QXe" firstAttribute="leading" secondItem="Chn-g7-6F8" secondAttribute="leading" id="Ofv-rr-fyI"/>
                             <constraint firstItem="uDj-gb-QXe" firstAttribute="top" secondItem="W2D-w0-zNl" secondAttribute="bottom" constant="8" symbolic="YES" id="YwQ-bS-4YU"/>
+                            <constraint firstAttribute="trailing" secondItem="ah7-V7-goT" secondAttribute="trailing" constant="37" id="bMA-GC-OHm"/>
                             <constraint firstItem="W2D-w0-zNl" firstAttribute="top" secondItem="Rbu-AG-Uv0" secondAttribute="bottom" constant="8" symbolic="YES" id="l36-GK-5qw"/>
                             <constraint firstAttribute="trailing" secondItem="uDj-gb-QXe" secondAttribute="trailing" id="lTd-P0-NfN"/>
                             <constraint firstItem="W2D-w0-zNl" firstAttribute="leading" secondItem="Chn-g7-6F8" secondAttribute="leadingMargin" id="oI3-uw-VZX"/>
                             <constraint firstItem="uDj-gb-QXe" firstAttribute="bottom" secondItem="SFb-IL-Nrc" secondAttribute="top" id="vTU-eC-lMv"/>
+                            <constraint firstAttribute="bottom" secondItem="ah7-V7-goT" secondAttribute="bottom" constant="472.5" id="xdt-PL-Lh0"/>
                             <constraint firstItem="W2D-w0-zNl" firstAttribute="centerX" secondItem="uDj-gb-QXe" secondAttribute="centerX" id="yci-aP-BRn"/>
                         </constraints>
                     </view>

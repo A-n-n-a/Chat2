@@ -11,8 +11,6 @@ import UIKit
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
-
   
     
     // MARK: Strings
@@ -156,6 +154,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let channel = channelsArray[indexPath.row]
         
         cell.customInit(userpic: channel.photo, nameLabel: channel.userName, messageLabel: channel.lastMessage, timeLabel: channel.time, unreadLabel: String(channel.unreadMessageCount))
+        
+        if cell.unreadLabel.text == "0" {
+            cell .unreadLabel.isHidden = true
+        } else {
+            cell.unreadLabel.layer.cornerRadius = 11
+            
+        }
         
         //MARK: Round Views
         
