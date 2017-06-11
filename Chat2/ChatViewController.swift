@@ -32,8 +32,16 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 //    var textMessagesArray = [String]()          // 6 items
 //    var unreadMessagesCountArray = [Int]()      // 6 items [3, 1, 0, 0, 0, 0]
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+
         
         //let nib = UINib(nibName: "ChatCell", bundle: nil)
         //tableView.register(nib, forCellReuseIdentifier: "ChatCell")
@@ -124,8 +132,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    
-    
+
     
     // MARK: - Table view data source
     
@@ -181,17 +188,22 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    private func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> UITableViewRowAction? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
-            
-            // delete item at indexPath
-        }
-        delete.backgroundColor = UIColor.blue
-        
-        
-        
-        return delete
-    }
+    
+//    private func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> UITableViewRowAction? {
+//        let someAction = UITableViewRowAction(style: .default, title: "") { value in
+//            print("button did tapped!")
+//        }
+//        someAction.backgroundColor = UIColor.blue
+////        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+////            
+////            // delete item at indexPath
+////        }
+////        delete.backgroundColor = UIColor.blue
+//        
+//        
+//        
+//        return someAction
+//    }
     
     
     

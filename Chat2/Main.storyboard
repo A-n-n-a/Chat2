@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="BGq-YG-oLU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vln-0u-cqX" customClass="ChatView" customModule="Chat2" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b3C-QH-zad">
-                                <rect key="frame" x="16" y="72" width="343" height="35"/>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b3C-QH-zad">
+                                <rect key="frame" x="16" y="8" width="343" height="35"/>
                                 <color key="backgroundColor" red="0.23605859279999999" green="0.45357757809999999" blue="0.70768171550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="jET-N5-FZK"/>
@@ -32,10 +32,15 @@
                                     <segment title="Chat"/>
                                     <segment title="LiveChat"/>
                                 </segments>
-                                <color key="tintColor" red="0.61294180149999999" green="0.72367936369999997" blue="0.85624682900000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ePl-JM-cSQ">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" rowHeight="70" id="TQe-r0-vHk" customClass="PrototypeCell" customModule="Chat2" customModuleProvider="target">
@@ -127,7 +132,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.26673910021781921" green="0.51956510543823242" blue="0.81420594453811646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b3C-QH-zad" firstAttribute="top" secondItem="Vww-Pw-heC" secondAttribute="bottom" constant="8" symbolic="YES" id="2LY-GU-cea"/>
                             <constraint firstItem="b3C-QH-zad" firstAttribute="centerX" secondItem="ePl-JM-cSQ" secondAttribute="centerX" id="349-tm-lbY"/>
@@ -138,7 +143,14 @@
                             <constraint firstItem="ePl-JM-cSQ" firstAttribute="leading" secondItem="vln-0u-cqX" secondAttribute="leading" id="bBg-35-Ztu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="6GT-aj-g5j"/>
+                    <navigationItem key="navigationItem" title="Chat" id="6GT-aj-g5j">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="7B1-3X-F1t">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="newChat" id="PXB-eu-rDa">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ePl-JM-cSQ" id="q3Z-F4-DZi"/>
                     </connections>
@@ -152,9 +164,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z7b-bq-9JN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I9B-95-TdQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="I9B-95-TdQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.26673910020000002" green="0.5195651054" blue="0.81420594449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.26673910020000002" green="0.5195651054" blue="0.81420594449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.26673910020000002" green="0.5195651054" blue="0.81420594449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -166,4 +184,7 @@
             <point key="canvasLocation" x="1716" y="61.619190404797607"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="newChat" width="18" height="19"/>
+    </resources>
 </document>
