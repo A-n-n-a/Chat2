@@ -10,13 +10,6 @@ struct Channel {
     var photo: UIImage
     let time: String
     
-    /*init(user: [[String:AnyObject]], lastMessage: [String:AnyObject], id: Int, unreadMessageCount: Int) {
-        self.user = user
-        self.lastMessage = lastMessage
-        self.id = id
-        self.unreadMessageCount = unreadMessageCount
-    }*/
-    
     init(dictionary: [String : AnyObject]) {
         
         let user = dictionary[Key.usersKey] as! [[String:AnyObject]]
