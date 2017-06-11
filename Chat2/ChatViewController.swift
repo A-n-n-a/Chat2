@@ -177,7 +177,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
             channelsArray.remove(at: indexPath.row)
+            self.tableView.reloadData()
         }
+    }
+    
+    private func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> UITableViewRowAction? {
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+            
+            // delete item at indexPath
+        }
+        delete.backgroundColor = UIColor.blue
+        
+        
+        
+        return delete
     }
     
     
