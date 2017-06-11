@@ -1,5 +1,6 @@
 
 struct Key {
+    
     static let idKey = "id"
     static let channelsKey = "channels"
     static let usersKey = "users"
@@ -11,4 +12,5 @@ struct Key {
     static let usernameKey = "username"
     static let textKey = "text"
     static let createDate = "create_date"
+     static let sender = "sender"
 }

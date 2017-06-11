@@ -21,6 +21,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var channels = [[String:AnyObject]]()
     var channelsArray = [Channel]()             //6 items
+    var messagesDict = [[String:AnyObject]]()
+    var messagesArray = [Message]()
+    var interlocutorsArray = [String]()
+    
+    var selectedRow = UITableViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,18 +51,54 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             for channel in channels {
                 let newChannel = Channel(dictionary: channel)
                 channelsArray.append(newChannel)
-                print(newChannel.userName)
-                //print(newChannel.user)
+                interlocutorsArray.append(newChannel.userName)
+                //print(newChannel.userName)
                 
                 
             }
+            
+            
         }
         catch {
             print(error)
         }
         
+        //MARK: JSON messeges.json
+        guard let messagePath = Bundle.main.path(forResource: messages, ofType: json) else {
+            return
+        }
+        let messageUrl = URL(fileURLWithPath: messagePath)
+        
+        do {
+            let data = try Data(contentsOf: messageUrl)
+            let myJson = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            //print("JSON\n\(myJson)")
+            let dict = myJson as! [String: AnyObject]
+            //print(dict)
+            
+            let messagesDict = dict["messages"] as! [[String:AnyObject]]
+            //                print(messages.count)
+            
+            for message in messagesDict {
+                let newMessage = Message(dictionary: message)
+                messagesArray.append(newMessage)
+                print(newMessage)
+                //print(newMessage.message)
+                //print(newChannel.user)
+                
+                
+            }
+            
+        }
+        catch {
+            print(error)
+        }
+
+        print(messagesArray.count)
+        print(interlocutorsArray)
     }
     
+
     // MARK: - Table view data source
 
     
@@ -85,6 +126,25 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destViewController = segue.destination as! MessengerViewController
+        
+        //парсим массив на структуры, индекс элемента массива - номер выбранной строки
+        
+        let selectedRowIndex = self.tableView.indexPathForSelectedRow
+        selectedRow = self.tableView.cellForRow(at: selectedRowIndex!)!
+        
+        for i in interlocutorsArray {
+            if i == interlocutorsArray[(selectedRowIndex?.row)!] {
+                destViewController.chatTitle = i
+            }
+        }
+    }
+    
+                
+    // row height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                 return 70
     }

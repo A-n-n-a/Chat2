@@ -2,31 +2,29 @@
 import Foundation
 import UIKit
 
-struct Channel {
-    var userName: String
-    var lastMessage: String
-    //var id: Int
-    var unreadMessageCount: Int
-    var photo: UIImage
+struct Message {
+    //var userName: String
+    var senderName: String
+    var message: String
     let time: String
-    
     
     init(dictionary: [String : AnyObject]) {
         
-        let user = dictionary[Key.usersKey] as! [[String:AnyObject]]
-        let interlocutor = user[0] as [String:AnyObject]
-        let firstName = interlocutor[Key.firstNameKey] as! String
-        let lastName = interlocutor[Key.lastNameKey] as! String
-        let userName = firstName + " " + lastName
-        let lastMessage = dictionary[Key.lastMessageKey] as! [String:AnyObject]
-        let text = lastMessage[Key.textKey] as! String
-        let unread = dictionary[Key.unreadMessagesCountKey] as! Int
+        let sender = dictionary[Key.sender] as! [String:AnyObject]
+        //let interlocutor = user[0] as [String:AnyObject]
+        let firstName = sender[Key.firstNameKey] as! String
+        let lastName = sender[Key.lastNameKey] as! String
+        let senderName = firstName + " " + lastName
+        //let lastMessage = dictionary[Key.lastMessageKey] as! [String:AnyObject]
+        let text = dictionary[Key.textKey] as! String
+        //let unread = dictionary[Key.unreadMessagesCountKey] as! Int
         
-        let photoString = interlocutor[Key.photoKey] as! String
-        let photoURL = NSURL(string: photoString)
-        let photoData = try? Data(contentsOf: photoURL! as URL)
+//        let photoString = interlocutor[Key.photoKey] as! String
+//        let photoURL = NSURL(string: photoString)
+//        let photoData = try? Data(contentsOf: photoURL! as URL)
         
-        var createDateString = lastMessage[Key.createDate] as! String
+        // time
+        var createDateString = dictionary[Key.createDate] as! String
         
         //convert String from json to acceptable format by removing some caracters
         if createDateString.characters.count == 27 {
@@ -44,12 +42,11 @@ struct Channel {
         dateFormatter.dateFormat = "dd-MMM HH:mm"
         dateFormatter.locale = tempLocale // reset the locale
         let createDate = dateFormatter.string(from: date!)
-       
         
-        self.userName = userName
-        self.lastMessage = text
-        self.unreadMessageCount = unread
-        self.photo = UIImage(data: photoData!)!
+        
+       // self.userName = userName
+        self.senderName = senderName
+        self.message = text
         self.time = createDate
     }
 }

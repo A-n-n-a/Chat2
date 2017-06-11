@@ -17,6 +17,8 @@
 		95263DE91EED5720005815DC /* chat.json in Resources */ = {isa = PBXBuildFile; fileRef = 95263DE81EED5720005815DC /* chat.json */; };
 		95263DEB1EED5729005815DC /* messages.json in Resources */ = {isa = PBXBuildFile; fileRef = 95263DEA1EED5729005815DC /* messages.json */; };
 		95E7AE431EEDA5CE00AF386B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E7AE421EEDA5CE00AF386B /* Main.storyboard */; };
+		95E7AE531EEDD9E600AF386B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7AE521EEDD9E600AF386B /* Message.swift */; };
+		95E7AE551EEDE00000AF386B /* MessengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E7AE541EEDE00000AF386B /* MessengerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		95263DE81EED5720005815DC /* chat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chat.json; sourceTree = "<group>"; };
 		95263DEA1EED5729005815DC /* messages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messages.json; sourceTree = "<group>"; };
 		95E7AE421EEDA5CE00AF386B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		95E7AE521EEDD9E600AF386B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		95E7AE541EEDE00000AF386B /* MessengerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 				95263DDF1EED5108005815DC /* Model */,
 				95263DCD1EED50D3005815DC /* AppDelegate.swift */,
 				95263DCF1EED50D3005815DC /* ChatViewController.swift */,
+				95E7AE541EEDE00000AF386B /* MessengerViewController.swift */,
 				95E7AE421EEDA5CE00AF386B /* Main.storyboard */,
 				95263DE71EED56BE005815DC /* Resources */,
 				95263DE21EED517E005815DC /* UI */,
@@ -82,6 +87,7 @@
 			children = (
 				95263DE01EED5119005815DC /* Channel.swift */,
 				95263DE51EED5497005815DC /* Key.swift */,
+				95E7AE521EEDD9E600AF386B /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -179,8 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				95263DD01EED50D3005815DC /* ChatViewController.swift in Sources */,
+				95E7AE551EEDE00000AF386B /* MessengerViewController.swift in Sources */,
 				95263DE61EED5497005815DC /* Key.swift in Sources */,
 				95263DE41EED5197005815DC /* PrototypeCell.swift in Sources */,
+				95E7AE531EEDD9E600AF386B /* Message.swift in Sources */,
 				95263DE11EED5119005815DC /* Channel.swift in Sources */,
 				95263DCE1EED50D3005815DC /* AppDelegate.swift in Sources */,
 			);

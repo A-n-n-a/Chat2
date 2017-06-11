@@ -43,11 +43,11 @@
                                 <rect key="frame" x="0.0" y="50" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" rowHeight="70" id="TQe-r0-vHk" customClass="PrototypeCell" customModule="Chat2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrototypeCell" rowHeight="70" id="TQe-r0-vHk" customClass="PrototypeCell" customModule="Chat2" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="TQe-r0-vHk" id="U4c-9f-3g5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b52-oN-8gb">
@@ -83,7 +83,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-Xd-Gzu">
-                                                    <rect key="frame" x="307" y="10" width="31" height="14"/>
+                                                    <rect key="frame" x="274" y="10" width="31" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="Sej-g6-DB7"/>
                                                     </constraints>
@@ -92,7 +92,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ4-hG-7Xy">
-                                                    <rect key="frame" x="316" y="39" width="22" height="22"/>
+                                                    <rect key="frame" x="283" y="39" width="22" height="22"/>
                                                     <color key="backgroundColor" red="0.30864432450000001" green="0.75289434190000004" blue="0.87821167710000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="22" id="4Dj-W6-5FF"/>
@@ -123,6 +123,7 @@
                                             <outlet property="timeLabel" destination="Mce-Xd-Gzu" id="9h8-Pb-1JK"/>
                                             <outlet property="unreadLabel" destination="jZ4-hG-7Xy" id="jqC-Ui-fRi"/>
                                             <outlet property="userpic" destination="b52-oN-8gb" id="aJp-I9-bCq"/>
+                                            <segue destination="nMQ-YA-AWA" kind="push" id="nMU-KN-9JL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -158,6 +159,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSM-jG-See" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2933.5999999999999" y="-29.23538230884558"/>
+        </scene>
+        <!--Messenger View Controller-->
+        <scene sceneID="n4V-4r-ceH">
+            <objects>
+                <viewController id="nMQ-YA-AWA" customClass="MessengerViewController" customModule="Chat2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eT9-fc-96L"/>
+                        <viewControllerLayoutGuide type="bottom" id="MAn-h9-OXP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K6M-rt-P70">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="d4B-Ff-LB5">
+                        <barButtonItem key="backBarButtonItem" title="&lt;Back" id="0R1-Ev-0gd">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Block" id="siO-6a-TwT">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ppt-k9-06M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3746" y="-29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PIw-He-Cgk">
