@@ -157,9 +157,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.customInit(userpic: channel.photo, nameLabel: channel.userName, messageLabel: channel.lastMessage, timeLabel: channel.time, unreadLabel: String(channel.unreadMessageCount))
         
         if cell.unreadLabel.text == "0" {
-            cell .unreadLabel.isHidden = true
-//        } else {
-//            cell.unreadLabel.layer.cornerRadius = 11
+            cell.unreadLabel.isHidden = true
+        } else {
+            cell.unreadLabel.layer.cornerRadius = 11
             
         }
         
@@ -173,6 +173,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                 return 70
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            channelsArray.remove(at: indexPath.row)
+        }
     }
     
     
