@@ -53,12 +53,12 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9q-R2-xVN">
-                                                    <rect key="frame" x="77" y="39" width="200" height="21"/>
+                                                    <rect key="frame" x="77" y="39" width="200" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="bCz-qd-tg0"/>
                                                         <constraint firstAttribute="height" constant="16" id="pKV-QO-Do7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -68,16 +68,16 @@
                                                         <constraint firstAttribute="height" constant="19" id="PP3-Lz-aO6"/>
                                                         <constraint firstAttribute="width" constant="150" id="Vec-fo-XAy"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-Xd-Gzu">
-                                                    <rect key="frame" x="296" y="10" width="42" height="21"/>
+                                                    <rect key="frame" x="302.5" y="10" width="35.5" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="Sej-g6-DB7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -97,7 +97,7 @@
                                                 <constraint firstItem="m7w-dP-jAd" firstAttribute="top" secondItem="U4c-9f-3g5" secondAttribute="top" constant="15" id="AKd-h1-gcx"/>
                                                 <constraint firstItem="m7w-dP-jAd" firstAttribute="leading" secondItem="U4c-9f-3g5" secondAttribute="leading" constant="77" id="BDY-34-rxP"/>
                                                 <constraint firstAttribute="trailing" secondItem="jZ4-hG-7Xy" secondAttribute="trailing" constant="37" id="Eq5-rT-QWA"/>
-                                                <constraint firstAttribute="bottom" secondItem="g9q-R2-xVN" secondAttribute="bottom" constant="36" id="GC4-6V-qVZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="g9q-R2-xVN" secondAttribute="bottom" constant="17" id="GC4-6V-qVZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mce-Xd-Gzu" secondAttribute="trailing" constant="37" id="Oka-QJ-7wY"/>
                                                 <constraint firstItem="Mce-Xd-Gzu" firstAttribute="top" secondItem="U4c-9f-3g5" secondAttribute="top" constant="6" id="Rgy-0I-SrO"/>
                                                 <constraint firstAttribute="bottom" secondItem="b52-oN-8gb" secondAttribute="bottom" constant="12" id="a7t-V4-Qwk"/>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSM-jG-See" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2935" y="-29"/>
+            <point key="canvasLocation" x="2933.5999999999999" y="-29.23538230884558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PIw-He-Cgk">
