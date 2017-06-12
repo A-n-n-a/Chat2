@@ -39,7 +39,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        observeChannels()
+       // observeChannels()
         
         self.tableView.reloadData()
         
@@ -94,6 +94,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let newMessage = Message(dictionary: message)
                 messagesArray.append(newMessage)
                 messageDateArray.append(newMessage.time)
+                sendersArray.append(newMessage.senderName)
                 print(newMessage)
                 //print(newMessage.message)
                 //print(newChannel.user)
@@ -169,6 +170,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         print(channels.count)
         print(channelsArray.count)
+
         
         let newChannel = channelsArray[(selectedRowIndex?.row)!]
         destViewController.textMessagesArray = textMessagesArray
@@ -179,6 +181,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         destViewController.channelRef = channelRef.child(String(newChannel.channelID))
         destViewController.avatarImage = newChannel.photo
         destViewController.dateArray = messageDateArray
+        destViewController.sendersNameArray = sendersArray
     }
     
                 
@@ -201,20 +204,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
-    private func observeChannels() {
-        channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
-            let channelData = snapshot.value as! [String:AnyObject]
-            let chan = Channel(dictionary: channelData)
-            let id = snapshot.key
-            
-            if let channelID = chan.channelID as? Int, chan.channelID >  0 {
-                self.channelsArray.append(chan)
-                self.tableView.reloadData()
-            } else {
-                print("Error! Could not decode channel data")
-            }
-        })
-    }
+//    private func observeChannels() {
+//        channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
+//            let channelData = snapshot.value as! [String:AnyObject]
+//            print("CHANNELDATA: \(channelData)")
+//            let chan = Channel(dictionary: channelData)
+//            let id = snapshot.key
+//            
+//            if let channelID = chan.channelID as? Int, chan.channelID >  0 {
+//                self.channelsArray.append(chan)
+//                self.tableView.reloadData()
+//            } else {
+//                print("Error! Could not decode channel data")
+//            }
+//        })
+//    }
     
     
 }

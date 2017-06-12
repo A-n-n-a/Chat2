@@ -12,77 +12,66 @@ import AVKit
 import MobileCoreServices
 import Firebase
 
-class MessengerViewController: JSQMessagesViewController { //UIImagePickerControllerDelegate, UINavigationControllerDelegate { //UICollectionViewDataSource, UICollectionViewDelegate {
+class MessengerViewController: JSQMessagesViewController {
     
     var channelRef: DatabaseReference?
-    var channel: Channel? //{
-//        didSet {
-//            title = channel?.userName
-//        }
-//    }
+    var channel: Channel?
+    
     var chatTitle = ""
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     
+    private lazy var messageRef: DatabaseReference = self.channelRef!.child(Key.messages)
+    private var newMessageRefHandle: DatabaseReference?
+    
     var textMessagesArray = [String]()
     var messages = [JSQMessage]()
-    let picker = UIImagePickerController()
-    var sender = String()
+
+    var sendersNameArray = [String]()
     var avatarImage = UIImage()
     var dateArray = [Date]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.senderId = chatTitle
-        print(self.senderId)
-        self.senderDisplayName = chatTitle
-        print(self.senderDisplayName)
-        
-        // title = interlocuter's name
         self.navigationItem.title = chatTitle
         
-        //print("Text number: \(textMessagesArray.count)")
+        self.senderId = " "
+        self.senderDisplayName = " "
+        
+        //fill mesagges array with default messages from json file
+        var n = 0
         for i in textMessagesArray {
-            var n = 0
-            let singleMessage = JSQMessage(senderId: senderId, senderDisplayName: senderId, date: dateArray[n], text: i)
+          
+            let singleMessage = JSQMessage(senderId: sendersNameArray[n], senderDisplayName: sendersNameArray[n], date: dateArray[n], text: i)
             messages.append(singleMessage!)
+            self.senderId = sendersNameArray[n]
+             print("SENDER ID: \(self.senderId!)")
+            self.senderDisplayName = sendersNameArray[n]
+            print("SENDER DISPLAY NAME: \(self.senderDisplayName!)")
+            print("N: \(n)")
             n += 1
+            print("N2: \(n)")
             print("Message count = \(messages.count)")
         }
-
-        //messages.append(JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: dateArray[0], text: textMessagesArray[0]))
-            
-        print("MESSAGE QUANTITY: \(messages.count)")
-        
-//        picker.delegate = self as UIImagePickerControllerDelegate as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
-//        
-//        self.sender = AuthProvider.Instance.userID()
-//        self.senderDisplayName = AuthProvider.Instance.userName
-//        MessagesHandler.Instance.delegate = self as! MessageReceivedDelegate
         
 
         
     }
     
-
-
+    //MARK: NUMBER OF ITEMS IN SECTION
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
     
     //MARK: MESSAGE DATA FOR ITEM AT INDEX PATH
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!,
                                  messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        print("MESSAGE QUANTITY 2: \(messages.count)")
-//        return messages.count > 0 ? self.messages[indexPath.item] : JSQMessage(senderId: senderId, senderDisplayName: title, date: dateArray[0], text: textMessagesArray[0]) as JSQMessageData
 
         return self.messages[indexPath.item]
         
-    }
-
-    //MARK: NUMBER OF ITEMS IN SECTION
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
     }
     
     //MARK: OUTGOING MESSAGE
@@ -94,24 +83,28 @@ class MessengerViewController: JSQMessagesViewController { //UIImagePickerContro
     //MARK: INCOMING MESSAGE
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
     
     //Set bubble image depends on sender
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.item]
-        if message.senderId == title{
-            return incomingBubbleImageView
-        } else {
+        print(message.senderId)
+        if message.senderId == senderId{
             return outgoingBubbleImageView
+        } else {
+            return incomingBubbleImageView
         }
     }
     
     //MARK: AVATAR
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-//        let avatar = avatarImage
-//        return avatar as! JSQMessageAvatarImageDataSource //as JSQMessageAvatarImageDataSource
-        return JSQMessagesAvatarImageFactory.avatarImage(with: avatarImage, diameter: UInt(Key.avatarDiametr))
+        let message = messages[indexPath.item]
+        if message.senderId == senderId{
+            return nil
+        } else {
+            return JSQMessagesAvatarImageFactory.avatarImage(with: avatarImage, diameter: UInt(Key.avatarDiametr))
+        }
     }
     
     //MARK: CREATE MESSAGE
@@ -120,55 +113,53 @@ class MessengerViewController: JSQMessagesViewController { //UIImagePickerContro
         messages.append(message)
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-//        for i in textMessagesArray {
-//            var n = 0
-//            let singleMessage = addMessage(senderId: senderId, senderDisplayName: senderId, date: dateArray[n], text: i)
-//            n += 1
-//            print("Message count = \(messages.count)")
-//        }
-        //        addMessage(senderID: "Clar Alex",  text: "Hey, how are you?")
-        //        addMessage(sender: "Nick Rock",  text: "Hey, how are you?")
-        //        addMessage(sender: "Nick Rock",  text: "Hey, how are you?")
-        //        addMessage(sender: "Clar Alex",  text: ":smile:")
-        //        addMessage(sender: "Clar Alex",  text: ":poop:")
-        //        addMessage(sender: "Nick Rock",  text: "Hey, how are you?")
-        //        addMessage(sender: "Nick Rock",  text: "Hey, how are you?")
-        //        addMessage(sender: "Clar Alex",  text: ":poop:")
-        //        addMessage(sender: "Clar Alex",  text: "Hey, how are you?")
-        //        addMessage(sender: "Clar Alex",  text: "Hey, how are you?")
-        //        addMessage(sender: "Clar Alex",  text: "Hey, how are you?")
-        //        addMessage(sender: "Clar Alex",  text: "Hey, how are you?")
-    }
-
-    
-    
+   
     //MARK: CELL FOR ITEM AT
     // make a cell for each cell index path
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         // get a reference to our storyboard cell
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
-        cell.avatarImageView.image = avatarImage
-        cell.avatarImageView.clipsToBounds = true;
-        cell.avatarImageView.layer.cornerRadius = CGFloat(Key.avatarDiametr/2);
-        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewCell
-        
-//        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-//        cell.myLabel.text = self.items[indexPath.item]
-//        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        let message = messages[indexPath.item]
+        if message.senderId == senderId {
+            cell.textView?.textColor = UIColor.white
+        } else {
+            cell.textView?.textColor = UIColor.black
+        }
         
         return cell
     }
     
     //MARK: DID PRESSED SEND
     override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
-        //messages.append(JSQMessage(senderId: sender, displayName: sender, text: textMessagesArray[0]))
-        //finishSendingMessage()
+        let itemRef = messageRef.childByAutoId()
+        let messageItem = [
+            Key.senderId: senderId,
+            Key.senderDisplayName: senderDisplayName,
+            Key.date: String(describing: date),
+            Key.textKey: text
+        ] as [String : Any]
+        itemRef.setValue(messageItem)
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        finishSendingMessage()
+
     }
     
-    
+//    private func observeMessages() {
+//        messageRef = channelRef!.child(Key.messages)
+//        //let messageQuery = messageRef.queryLimited(toLast: 25)
+//        
+//        newMessageRefHandle = messageRef.observe(.childAdded, with: { (snapshot) -> Void in
+//            let messageData = snapshot.value as! [String:String]
+//            if let senderId = messageData[Key.senderId] as String!, let senderDisplayName = messageData[Key.senderDisplayName] as String!, let date = String(messageData[Key.date]), let text = messageData[Key.textKey] as String!, text.characters.count > 0 {
+//                self.addMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
+//                self.finishReceivingMessage()
+//            } else {
+//                print("Error! Could not decode message data")
+//            }
+//        })
+//  
+//    }
     
 
 }

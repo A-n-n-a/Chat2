@@ -16,6 +16,11 @@ struct Key {
     static let textKey = "text"
     static let createDate = "create_date"
     static let sender = "sender"
+    static let messages = "messages"
+    static let senderId = "senderID"
+    static let senderDisplayName = "senderDisplayName"
+    static let date = "date"
+    
     static let avatarDiametr = 44
     
 }
