@@ -1,4 +1,7 @@
 
+//Strings, Ints
+
+
 struct Key {
     
     static let idKey = "id"
@@ -12,5 +15,7 @@ struct Key {
     static let usernameKey = "username"
     static let textKey = "text"
     static let createDate = "create_date"
-     static let sender = "sender"
+    static let sender = "sender"
+    static let avatarDiametr = 44
+    
 }

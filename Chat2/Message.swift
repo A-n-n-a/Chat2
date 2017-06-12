@@ -6,7 +6,7 @@ struct Message {
     //var userName: String
     var senderName: String
     var message: String
-    let time: String
+    let time: Date
     
     init(dictionary: [String : AnyObject]) {
         
@@ -40,13 +40,13 @@ struct Message {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: createDateString)
         dateFormatter.dateFormat = "dd-MMM HH:mm"
-        dateFormatter.locale = tempLocale // reset the locale
-        let createDate = dateFormatter.string(from: date!)
+        //dateFormatter.locale = tempLocale // reset the locale
+       // let createDate = dateFormatter.string(from: date!)
         
         
        // self.userName = userName
         self.senderName = senderName
         self.message = text
-        self.time = createDate
+        self.time = date!
     }
 }

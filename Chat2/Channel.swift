@@ -3,6 +3,7 @@ import Foundation
 import UIKit
 
 struct Channel {
+    var channelID: Int
     var userName: String
     var lastMessage: String
     //var id: Int
@@ -13,6 +14,7 @@ struct Channel {
     
     init(dictionary: [String : AnyObject]) {
         
+        let id = dictionary[Key.idKey] as! Int
         let user = dictionary[Key.usersKey] as! [[String:AnyObject]]
         let interlocutor = user[0] as [String:AnyObject]
         let firstName = interlocutor[Key.firstNameKey] as! String
@@ -45,7 +47,7 @@ struct Channel {
         dateFormatter.locale = tempLocale // reset the locale
         let createDate = dateFormatter.string(from: date!)
        
-        
+        self.channelID = id
         self.userName = userName
         self.lastMessage = text
         self.unreadMessageCount = unread

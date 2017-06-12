@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,20 +18,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     let messages = "messages"
     let json = "json"
     let prototypeCell = "PrototypeCell"
+   
     
     
     var channels = [[String:AnyObject]]()
     var channelsArray = [Channel]()             //6 items
+    //var newChannel = Channel(dictionary: channels)
     var messagesDict = [[String:AnyObject]]()
     var messagesArray = [Message]()
     var textMessagesArray = [String]()
     var interlocutorsArray = [String]()
     var sendersArray = [String]()
+    var messageDateArray = [Date]()
     
     var selectedRow = UITableViewCell()
     
+    private lazy var channelRef: DatabaseReference = Database.database().reference().child(Key.idKey)
+    private var channelRefHandle: DatabaseHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        observeChannels()
         
         self.tableView.reloadData()
         
@@ -48,10 +57,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             //print(dict)
             
             let channels = dict["channels"] as! [[String:AnyObject]]
-            //print(channels.count)
+            print(channels.count)
             
             for channel in channels {
-                let newChannel = Channel(dictionary: channel)
+                var newChannel = Channel(dictionary: channel)
                 channelsArray.append(newChannel)
                 interlocutorsArray.append(newChannel.userName)
                 //print(newChannel.userName)
@@ -84,6 +93,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             for message in messagesDict {
                 let newMessage = Message(dictionary: message)
                 messagesArray.append(newMessage)
+                messageDateArray.append(newMessage.time)
                 print(newMessage)
                 //print(newMessage.message)
                 //print(newChannel.user)
@@ -104,6 +114,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         print("MESSAGE: \(messagesArray.count)")
         print("INTER: \(interlocutorsArray)")
+    }
+    
+    deinit {
+        if let refHandle = channelRefHandle {
+            channelRef.removeObserver(withHandle: refHandle)
+        }
     }
     
 
@@ -134,7 +150,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-    
+    //MARK: PREPARE SEGUE
     // Pass date to next VC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -151,8 +167,18 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 destViewController.chatTitle = i
             }
         }
+        print(channels.count)
+        print(channelsArray.count)
+        
+        let newChannel = channelsArray[(selectedRowIndex?.row)!]
         destViewController.textMessagesArray = textMessagesArray
-        destViewController.sender = interlocutorsArray[(selectedRowIndex?.row)!]
+        //destViewController.sender = interlocutorsArray[(selectedRowIndex?.row)!]
+        
+        destViewController.senderDisplayName = interlocutorsArray[(selectedRowIndex?.row)!]
+        destViewController.channel = newChannel
+        destViewController.channelRef = channelRef.child(String(newChannel.channelID))
+        destViewController.avatarImage = newChannel.photo
+        destViewController.dateArray = messageDateArray
     }
     
                 
@@ -168,6 +194,26 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             channelsArray.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
+    private func observeChannels() {
+        channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
+            let channelData = snapshot.value as! [String:AnyObject]
+            let chan = Channel(dictionary: channelData)
+            let id = snapshot.key
+            
+            if let channelID = chan.channelID as? Int, chan.channelID >  0 {
+                self.channelsArray.append(chan)
+                self.tableView.reloadData()
+            } else {
+                print("Error! Could not decode channel data")
+            }
+        })
     }
     
     

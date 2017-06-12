@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>663227795691-a15b7lvmod3frm36kvq2mb53an8ba62p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.663227795691-a15b7lvmod3frm36kvq2mb53an8ba62p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDk6r2zS_NfIDZDIOKKpt8aUi6mXzksDTM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>663227795691</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>A-Lime-Studio.Chat2</string>
+	<key>PROJECT_ID</key>
+	<string>chat2-ef0cf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chat2-ef0cf.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:663227795691:ios:8ab45d8b0e3aef8f</string>
+	<key>DATABASE_URL</key>
+	<string>https://chat2-ef0cf.firebaseio.com</string>
+</dict>
+</plist>
