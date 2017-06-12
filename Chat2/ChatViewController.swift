@@ -23,7 +23,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var channelsArray = [Channel]()             //6 items
     var messagesDict = [[String:AnyObject]]()
     var messagesArray = [Message]()
+    var textMessagesArray = [String]()
     var interlocutorsArray = [String]()
+    var sendersArray = [String]()
     
     var selectedRow = UITableViewCell()
     
@@ -93,9 +95,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         catch {
             print(error)
         }
+        
+        for i in messagesArray {
+            print("MESSAGE: \(i.message)")
+            textMessagesArray.append(i.message)
+            
+        }
 
-        print(messagesArray.count)
-        print(interlocutorsArray)
+        print("MESSAGE: \(messagesArray.count)")
+        print("INTER: \(interlocutorsArray)")
     }
     
 
@@ -127,6 +135,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    // Pass date to next VC
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let destViewController = segue.destination as! MessengerViewController
@@ -141,6 +151,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 destViewController.chatTitle = i
             }
         }
+        destViewController.textMessagesArray = textMessagesArray
+        destViewController.sender = interlocutorsArray[(selectedRowIndex?.row)!]
     }
     
                 

@@ -178,6 +178,9 @@
                         <barButtonItem key="backBarButtonItem" title="&lt;Back" id="0R1-Ev-0gd">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="Xfs-H5-Kfv">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Block" id="siO-6a-TwT">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>

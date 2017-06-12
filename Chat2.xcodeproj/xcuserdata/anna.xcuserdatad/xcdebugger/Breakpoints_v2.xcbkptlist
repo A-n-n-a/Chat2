@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chat2/MessengerViewController.swift"
-            timestampString = "518905941.118893"
+            timestampString = "518940181.835702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "MessengerViewController"
             landmarkType = "3">
          </BreakpointContent>
