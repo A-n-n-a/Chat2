@@ -36,14 +36,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     private lazy var channelRef: DatabaseReference = Database.database().reference().child(Key.idKey)
     private var channelRefHandle: DatabaseHandle?
     
+    //MARK: VIEW DID LOAD
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // observeChannels()
+        //observeChannels()
         
         self.tableView.reloadData()
         
         //MARK: JSON chat.json
+        
         guard let path = Bundle.main.path(forResource: chat, ofType: json) else {
             return
         }
@@ -163,13 +166,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let selectedRowIndex = self.tableView.indexPathForSelectedRow
         selectedRow = self.tableView.cellForRow(at: selectedRowIndex!)!
         
-        for i in interlocutorsArray {
-            if i == interlocutorsArray[(selectedRowIndex?.row)!] {
-                destViewController.chatTitle = i
-            }
-        }
-        print(channels.count)
-        print(channelsArray.count)
+        destViewController.chatTitle = interlocutorsArray[(selectedRowIndex?.row)!]
+        
+//        print(channels.count)
+//        print(channelsArray.count)
 
         
         let newChannel = channelsArray[(selectedRowIndex?.row)!]
@@ -199,17 +199,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//    }
     
 //    private func observeChannels() {
 //        channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
-//            let channelData = snapshot.value as! [String:AnyObject]
+//           let channelData = snapshot.value as! [String:AnyObject]
 //            print("CHANNELDATA: \(channelData)")
 //            let chan = Channel(dictionary: channelData)
-//            let id = snapshot.key
+//            //let id = snapshot.key
 //            
 //            if let channelID = chan.channelID as? Int, chan.channelID >  0 {
 //                self.channelsArray.append(chan)

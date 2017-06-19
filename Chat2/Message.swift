@@ -6,9 +6,12 @@ struct Message {
     //var userName: String
     var senderName: String
     var message: String
-    let time: Date
+    var time: Date
+    
+   // lazy var senderID: Int
     
     init(dictionary: [String : AnyObject]) {
+        
         
         let sender = dictionary[Key.sender] as! [String:AnyObject]
         //let interlocutor = user[0] as [String:AnyObject]
@@ -49,4 +52,16 @@ struct Message {
         self.message = text
         self.time = date!
     }
+    
+//    mutating func customInit(senderID: Int, senderName: String, message: String, time: Date) {
+//        self.senderID = senderID
+//        self.senderName = senderName
+//        self.message = message
+//        self.time = time
+//        
+//
+//    }
+    
+    
+    
 }
