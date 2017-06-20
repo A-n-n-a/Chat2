@@ -38,7 +38,6 @@ struct Message {
         }
         // String -> Date -> String
         let dateFormatter = DateFormatter()
-        let tempLocale = dateFormatter.locale // save locale temporarily
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: createDateString)

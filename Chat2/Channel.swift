@@ -6,7 +6,6 @@ struct Channel {
     var channelID: Int
     var userName: String
     var lastMessage: String
-    //var id: Int
     var unreadMessageCount: Int
     var photo: UIImage
     let time: String
