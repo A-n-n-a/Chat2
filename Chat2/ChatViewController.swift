@@ -115,7 +115,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.customInit(userpic: channel.photo, nameLabel: channel.userName, messageLabel: channel.lastMessage, timeLabel: channel.time, unreadLabel: String(channel.unreadMessageCount))
         
-        if cell.unreadLabel.text == zero {
+        if cell.unreadLabel.text == "0" {
             cell.unreadLabel.isHidden = true
         } else {
             cell.unreadLabel.layer.cornerRadius = 11     // Round Views
